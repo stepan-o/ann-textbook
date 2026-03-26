@@ -14,6 +14,7 @@ app.add_middleware(
 
 app.include_router(perceptron_router)
 
+
 @app.get("/health")
 def health():
     return {"ok": True}
