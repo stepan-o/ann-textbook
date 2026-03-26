@@ -103,9 +103,31 @@ export function PerceptronDemo() {
               Perceptron -&gt; XOR
             </h1>
             <p className="text-sm leading-6 text-stone-300">
-              A perceptron learns a single linear decision boundary. That works
-              on linearly separable data and breaks in a revealing way on XOR.
+              A perceptron takes a weighted sum of the inputs and applies a
+              threshold. In two dimensions, that gives it one straight-line
+              decision boundary.
             </p>
+          </div>
+
+          <div className="mt-6 rounded-2xl border border-white/10 bg-stone-950/60 p-4">
+            <p className="text-xs uppercase tracking-[0.2em] text-stone-500">
+              Core idea
+            </p>
+            <div className="mt-3 space-y-3 text-sm leading-6 text-stone-300">
+              <p>
+                If one line can separate the labels, training can adjust the
+                weights until the perceptron classifies every point correctly.
+              </p>
+              <p>
+                XOR is different: it asks opposite corners to share a label, and
+                no single line can do that.
+              </p>
+              <p>
+                That is why XOR is a structural failure case. More training does
+                not change the shape of the model. Hidden layers matter later
+                because they let us combine multiple boundaries.
+              </p>
+            </div>
           </div>
 
           <div className="mt-8 space-y-4 rounded-2xl border border-white/10 bg-stone-950/60 p-4">
@@ -156,8 +178,9 @@ export function PerceptronDemo() {
             </div>
 
             <p className="text-xs text-stone-500">
-              Try training on both datasets and compare what happens to the
-              mistake count.
+              Compare the decision line and the remaining mistakes on both
+              datasets. One should become cleanly separable. The other should
+              resist.
             </p>
           </div>
 
@@ -261,9 +284,9 @@ export function PerceptronDemo() {
           </div>
 
           <p className="mb-5 max-w-2xl text-sm leading-6 text-stone-300">
-            Train on the separable dataset to watch the line settle into a clean
-            split. Switch to XOR and the mismatched rings should remain, even
-            after extra training.
+            Watch the line move as training updates the weights. On separable
+            data, the line can settle into the right split. On XOR, some points
+            stay on the wrong side because one line is not enough.
           </p>
 
           <PerceptronPlot data={data} />

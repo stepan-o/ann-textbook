@@ -93,15 +93,20 @@ def build_response(
     ]
 
     notes = [
-        "Perceptron can only represent a linear decision boundary.",
-        "XOR is not linearly separable, so a single perceptron cannot solve it perfectly.",
+        "A perceptron classifies each point by taking a weighted sum and applying a threshold.",
+        "In two dimensions, that means a single perceptron can only draw one linear decision boundary.",
     ]
 
     if dataset == "linearly_separable":
-        notes.append("This dataset is linearly separable, so the perceptron can learn it.")
+        notes.append(
+            "This dataset is linearly separable, so training can move the weights toward a perfect split."
+        )
 
     if dataset == "xor":
-        notes.append("Training may reduce some mistakes, but the failure on XOR is structural.")
+        notes.append("XOR is not linearly separable: no single straight line can separate its labels.")
+        notes.append(
+            "More epochs cannot fix that structural limit. Hidden layers matter because they can combine multiple boundaries."
+        )
 
     return {
         "dataset": {

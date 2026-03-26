@@ -169,7 +169,8 @@ export function PerceptronPlot({
           <h2 className="text-lg font-medium text-stone-100">Decision Space</h2>
           <p className="max-w-xl text-sm leading-6 text-stone-300">
             Fill color shows the true label. The outer ring shows the
-            perceptron&apos;s current prediction.
+            perceptron&apos;s current prediction. When ring and fill disagree,
+            that point is still on the wrong side of the line.
           </p>
         </div>
 
