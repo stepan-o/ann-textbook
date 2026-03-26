@@ -1,0 +1,11 @@
+{
+  "name": "ann-textbook",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev:web": "pnpm --dir apps/web dev",
+    "dev:api": "cd apps/api && source .venv/bin/activate && uvicorn app.main:app --reload --port 8000",
+    "build:web": "pnpm --dir apps/web build",
+    "lint:web": "pnpm --dir apps/web lint"
+  }
+}
